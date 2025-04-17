@@ -7,26 +7,31 @@ public class Authentication{
     private static final String DB_PASSWORD = "1234";
 
     // Login Method
-    public boolean login(String username, String password) {
-        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+    public String login(String username, String password) {
+        String query = "SELECT role FROM users WHERE username = ? AND password = ?";
 
-        try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASSWORD);
+        try (Connection conn = DBconfig.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setString(1, username);
             stmt.setString(2, password);
 
             ResultSet rs = stmt.executeQuery();
-            return rs.next();
+            if (rs.next()) {
+                return rs.getString("role");
+            } else {
+                return null;
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 
+
     public boolean register(String username, String email, String password) {
-        String query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+        String query = "INSERT INTO users (username, email, password,role) VALUES (?, ?, ?,'customer')";
 
         try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(query)) {

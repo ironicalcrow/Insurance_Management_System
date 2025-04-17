@@ -1,4 +1,4 @@
-import java.util.Date;
+import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 
 public abstract class Policy {

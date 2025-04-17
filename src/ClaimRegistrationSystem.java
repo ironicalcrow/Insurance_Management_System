@@ -41,7 +41,7 @@ public class ClaimRegistrationSystem {
     private int insertHealthPolicy(HealthPolicy policy, Connection conn) throws SQLException {
         String sql = "INSERT INTO HealthPolicy (H_P_id, start_date, end_date, premium) VALUES (?, ?, ?, ?)";
 
-        int policyID = HealthPolicy.getHealthPolicyNumber() - 1;
+        int policyID = policy.getHealthPolicyNumber();
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, policyID);
             stmt.setDate(2, new java.sql.Date(policy.getStartDate().getTime()));
@@ -56,7 +56,7 @@ public class ClaimRegistrationSystem {
     private int insertVehiclePolicy(VehiclePolicy policy, Connection conn) throws SQLException {
         String sql = "INSERT INTO VehiclePolicy (V_P_id, vehicle_type, plate_number, vehicle_price) VALUES (?, ?, ?, ?)";
 
-        int policyID = VehiclePolicy.getVehiclePolicyID() - 1;
+        int policyID = policy.getVehiclePolicyID() - 1;
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, policyID);
             stmt.setString(2, policy.getVehicleType());
