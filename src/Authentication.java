@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class Authentication {
+public class Authentication{
 
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/insurance_mangement_system";
     private static final String DB_USER = "root";
@@ -25,7 +25,6 @@ public class Authentication {
         }
     }
 
-    // Register Method
     public boolean register(String username, String email, String password) {
         String query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
 

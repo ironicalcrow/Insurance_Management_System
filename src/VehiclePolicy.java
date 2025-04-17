@@ -13,4 +13,19 @@ public class VehiclePolicy extends Policy {
         this.VehiclePrice = VehiclePrice;
         VehiclePolicyID++;
     }
+    public static int getVehiclePolicyID() {
+        return VehiclePolicyID;
+    }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public String getPlateNumber() {
+        return plateNumber;
+    }
+
+    public double getVehiclePrice() {
+        return VehiclePrice;
+    }
 }

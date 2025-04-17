@@ -9,7 +9,7 @@ public abstract class Person {
     private String NIDnumber;
     private String BirthCertificateNumber;
     private Date dateOfBirth;
-    private boolean gender;
+    boolean gender;
     public Person(String firstName,String lastName, String address, String phone, String email, String NIDnumber, String BirthCertificateNumber, Date dateOfBirth, boolean gender) {
         this.firstName = firstName;
         this.lastName = lastName;
