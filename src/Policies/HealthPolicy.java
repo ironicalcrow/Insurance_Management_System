@@ -1,3 +1,5 @@
+package Policies;
+import DBconfig.DBconfig;
 import java.sql.*;
 
 public class HealthPolicy extends Policy {
@@ -29,4 +31,8 @@ public class HealthPolicy extends Policy {
     public int getHealthPolicyNumber() {
         return HealthPolicyID;
     }
+    public void setHealthPolicyNumber(int healthPolicyNumber) {
+        this.HealthPolicyID = healthPolicyNumber;
+    }
 }
+

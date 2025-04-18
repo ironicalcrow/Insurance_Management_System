@@ -1,9 +1,13 @@
+package Human;
+
+import DBconfig.DBconfig;
 import java.sql.*;
 
-public class Customer extends Person {
+public class Customer{
+    private Person person;
     private int customerID;
-    public Customer(String firstName, String lastName, String address, String phone, String email, String NIDnumber, String BirthCertificateNumber, Date dateOfBirth, boolean gender) {
-        super(firstName, lastName, address, phone, email, NIDnumber, BirthCertificateNumber, dateOfBirth, gender);
+    public Customer(Person person) {
+        this.person = person;
         String sql = "SELECT MAX(C_id) FROM Customers";
 
         try (Connection conn = DBconfig.getConnection();
@@ -25,9 +29,15 @@ public class Customer extends Person {
         }
     }
 
+    public Person getPerson() {
+        return person;
+    }
+
     public int getCustomerID() {
         return customerID;
     }
 
-
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
 }

@@ -1,3 +1,6 @@
+package Policies;
+
+import DBconfig.DBconfig;
 import java.sql.*;
 
 public class VehiclePolicy extends Policy {
@@ -47,4 +50,9 @@ public class VehiclePolicy extends Policy {
     public double getVehiclePrice() {
         return VehiclePrice;
     }
+
+    public void setVehiclePolicyID(int vehiclePolicyID) {
+        VehiclePolicyID = vehiclePolicyID;
+    }
 }
+

@@ -1,3 +1,4 @@
+package Policies;
 import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -30,4 +31,6 @@ public abstract class Policy {
 
         return baserate;
     }
+
 }
+

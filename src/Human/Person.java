@@ -1,6 +1,8 @@
+package Human;
+
 import java.sql.Date;
 
-public abstract class Person {
+public class Person {
     private String firstName;
     private String lastName;
     private String address;
@@ -9,7 +11,7 @@ public abstract class Person {
     private String NIDnumber;
     private String BirthCertificateNumber;
     private Date dateOfBirth;
-    boolean gender;
+    private boolean gender;
     public Person(String firstName,String lastName, String address, String phone, String email, String NIDnumber, String BirthCertificateNumber, Date dateOfBirth, boolean gender) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -60,4 +62,5 @@ public abstract class Person {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 }
